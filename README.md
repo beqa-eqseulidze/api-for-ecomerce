@@ -1,5 +1,11 @@
-# 🚀 Getting started with Strapi
+# get startied:
+	node version 18.18.2;
+	run in terminal: npm install;
+	run in terminal: npm run develop;
+	server is ready and angular aplication will work;
 
+
+# 🚀 Getting started with Strapi
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
 ### `develop`
