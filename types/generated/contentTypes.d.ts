@@ -682,6 +682,47 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'banner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }> &
+      Attribute.DefaultTo<'unknown'>;
+    isActive: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCartCart extends Schema.CollectionType {
   collectionName: 'carts';
   info: {
@@ -721,6 +762,7 @@ export interface ApiMainCategoryMainCategory extends Schema.CollectionType {
     singularName: 'main-category';
     pluralName: 'main-categories';
     displayName: 'Main-Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -728,6 +770,7 @@ export interface ApiMainCategoryMainCategory extends Schema.CollectionType {
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -761,6 +804,7 @@ export interface ApiOneLevelSubCategoryOneLevelSubCategory
     singularName: 'one-level-sub-category';
     pluralName: 'one-level-sub-categories';
     displayName: 'One-Level-Sub-Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -768,6 +812,7 @@ export interface ApiOneLevelSubCategoryOneLevelSubCategory
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -805,6 +850,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'product';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -812,6 +858,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
   attributes: {
     name: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -869,6 +916,7 @@ export interface ApiTwoLevelSubCategoryTwoLevelSubCategory
     singularName: 'two-level-sub-category';
     pluralName: 'two-level-sub-categories';
     displayName: 'Two-Level-Sub-Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -876,6 +924,7 @@ export interface ApiTwoLevelSubCategoryTwoLevelSubCategory
   attributes: {
     title: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
       Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
@@ -925,6 +974,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::banner.banner': ApiBannerBanner;
       'api::cart.cart': ApiCartCart;
       'api::main-category.main-category': ApiMainCategoryMainCategory;
       'api::one-level-sub-category.one-level-sub-category': ApiOneLevelSubCategoryOneLevelSubCategory;

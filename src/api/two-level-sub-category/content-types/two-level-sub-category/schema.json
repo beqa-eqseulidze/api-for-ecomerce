@@ -4,7 +4,8 @@
   "info": {
     "singularName": "two-level-sub-category",
     "pluralName": "two-level-sub-categories",
-    "displayName": "Two-Level-Sub-Category"
+    "displayName": "Two-Level-Sub-Category",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,7 +15,8 @@
     "title": {
       "type": "string",
       "required": true,
-      "minLength": 2
+      "minLength": 2,
+      "unique": true
     },
     "one_level_sub_categories": {
       "type": "relation",
@@ -23,11 +25,12 @@
       "inversedBy": "two_level_sub_categories"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "onHome": {
       "type": "boolean",
