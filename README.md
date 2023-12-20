@@ -1,4 +1,7 @@
-# get startied:
+# strapi credential:
+    email: beqaeqseulidze6@gmail.com
+	password:BeqaBeqa2608
+# get started:	
 	node version 18.18.2;
 	run in terminal: npm install;
 	run in terminal: npm run develop;

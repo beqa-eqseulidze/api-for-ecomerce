@@ -77,6 +77,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "users_permissions_user"
     }
   }
 }
